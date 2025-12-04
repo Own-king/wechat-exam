@@ -1,0 +1,47 @@
+<!--pages/certification/certification.wxml-->
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">认证评测</text>
+    <text class="page-subtitle">选择你想要的认证考试</text>
+  </view>
+
+  <!-- 搜索框 -->
+  <view class="search-bar">
+    <image class="search-icon" src="/images/search.png" mode="aspectFit"></image>
+    <input class="search-input" placeholder="搜索认证考试" placeholder-style="color: #999;"/>
+  </view>
+
+  <!-- 认证分类 -->
+  <view class="category-tabs">
+    <view class="category-item {{currentCategory === index ? 'active' : ''}}" 
+          wx:for="{{categories}}" 
+          wx:key="index"
+          bindtap="switchCategory"
+          data-index="{{index}}">
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 认证列表 -->
+  <view class="cert-list">
+    <view class="cert-card" wx:for="{{certList}}" wx:key="id">
+      <view class="cert-header">
+        <text class="cert-tag">{{item.tag}}</text>
+        <view class="cert-badge" wx:if="{{item.isFree}}">限免</view>
+        <view class="cert-badge hot" wx:if="{{item.isHot}}">热门</view>
+      </view>
+      <view class="cert-content">
+        <text class="cert-title">{{item.title}}</text>
+        <text class="cert-subtitle">{{item.subtitle}}</text>
+        <view class="cert-info">
+          <text class="cert-count">共 {{item.count}} 题</text>
+          <text class="cert-difficulty">难度: {{item.difficulty}}</text>
+        </view>
+      </view>
+      <view class="cert-action">
+        <view class="btn-go" bindtap="startExam" data-id="{{item.id}}">开始刷题</view>
+      </view>
+    </view>
+  </view>
+</view>
+

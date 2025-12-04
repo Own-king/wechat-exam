@@ -1,0 +1,71 @@
+<!--pages/profile/profile.wxml-->
+<view class="container">
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <view class="user-header">
+      <image class="avatar" src="{{userInfo.avatar}}" mode="aspectFill"></image>
+      <view class="user-info">
+        <text class="username">{{userInfo.name}}</text>
+        <text class="phone">{{userInfo.phone}}</text>
+      </view>
+      <view class="vip-badge" wx:if="{{userInfo.isVip}}">VIP</view>
+    </view>
+    
+    <!-- 用户数据统计 -->
+    <view class="user-stats">
+      <view class="stat-item">
+        <text class="stat-value">{{userStats.examCount}}</text>
+        <text class="stat-label">已刷题数</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{userStats.certCount}}</text>
+        <text class="stat-label">获得认证</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{userStats.studyDays}}</text>
+        <text class="stat-label">学习天数</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-section">
+    <view class="menu-title">我的服务</view>
+    <view class="menu-list">
+      <view class="menu-item" wx:for="{{menuList}}" wx:key="id" bindtap="handleMenuClick" data-id="{{item.id}}">
+        <view class="menu-left">
+          <image class="menu-icon" src="{{item.icon}}" mode="aspectFit"></image>
+          <text class="menu-text">{{item.title}}</text>
+        </view>
+        <view class="menu-right">
+          <text class="menu-badge" wx:if="{{item.badge}}">{{item.badge}}</text>
+          <image class="arrow-icon" src="/images/arrow-right.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设置菜单 -->
+  <view class="menu-section">
+    <view class="menu-title">设置</view>
+    <view class="menu-list">
+      <view class="menu-item" wx:for="{{settingList}}" wx:key="id" bindtap="handleSettingClick" data-id="{{item.id}}">
+        <view class="menu-left">
+          <image class="menu-icon" src="{{item.icon}}" mode="aspectFit"></image>
+          <text class="menu-text">{{item.title}}</text>
+        </view>
+        <view class="menu-right">
+          <image class="arrow-icon" src="/images/arrow-right.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 退出登录按钮 -->
+  <view class="logout-section">
+    <button class="btn-logout" bindtap="handleLogout">退出登录</button>
+  </view>
+</view>
+

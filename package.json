@@ -1,0 +1,21 @@
+{
+  "name": "wechat-exam",
+  "version": "1.0.0",
+  "description": "实战云刷题小程序",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wechat",
+    "miniprogram",
+    "exam",
+    "certification",
+    "study"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
+

@@ -1,0 +1,153 @@
+/* pages/certification/certification.wxss */
+.container {
+  padding: 40rpx 30rpx 120rpx;
+  background-color: #f5f7fa;
+}
+
+.page-header {
+  margin-bottom: 40rpx;
+}
+
+.page-title {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: #333;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.page-subtitle {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 搜索框 */
+.search-bar {
+  background: #ffffff;
+  border-radius: 48rpx;
+  padding: 20rpx 32rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-bottom: 32rpx;
+}
+
+.search-icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+/* 分类标签 */
+.category-tabs {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 32rpx;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.category-item {
+  padding: 16rpx 32rpx;
+  background: #ffffff;
+  border-radius: 48rpx;
+  font-size: 28rpx;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.category-item.active {
+  background: linear-gradient(135deg, #667eea 0%, #4A7BF7 100%);
+  color: #ffffff;
+}
+
+/* 认证列表 */
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.cert-card {
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 32rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.cert-header {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-bottom: 20rpx;
+}
+
+.cert-tag {
+  font-size: 24rpx;
+  color: #4A7BF7;
+  padding: 6rpx 16rpx;
+  background: #e8f0ff;
+  border-radius: 8rpx;
+}
+
+.cert-badge {
+  position: absolute;
+  top: 24rpx;
+  right: 24rpx;
+  background: linear-gradient(135deg, #ffd89b 0%, #ff9a56 100%);
+  color: #ffffff;
+  font-size: 22rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 8rpx;
+}
+
+.cert-badge.hot {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.cert-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+  margin-bottom: 24rpx;
+}
+
+.cert-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.cert-subtitle {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.cert-info {
+  display: flex;
+  gap: 32rpx;
+}
+
+.cert-count, .cert-difficulty {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.cert-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-go {
+  background: linear-gradient(135deg, #667eea 0%, #4A7BF7 100%);
+  color: #ffffff;
+  font-size: 28rpx;
+  padding: 16rpx 48rpx;
+  border-radius: 48rpx;
+}
+

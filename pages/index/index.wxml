@@ -1,0 +1,83 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 顶部用户信息 -->
+  <view class="header">
+    <view class="user-info">
+      <text class="greeting">你好！{{phoneNumber}}</text>
+      <text class="subtitle">实战云</text>
+    </view>
+    <view class="header-actions">
+      <view class="icon-btn">
+        <image class="icon-more" src="/images/more.png" mode="aspectFit"></image>
+      </view>
+      <view class="icon-btn">
+        <image class="icon-scan" src="/images/scan.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 四个功能模块 -->
+  <view class="feature-grid">
+    <view class="feature-item" bindtap="goToCertification">
+      <view class="feature-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <image src="/images/icon-cert.png" mode="aspectFit"></image>
+      </view>
+      <text class="feature-text">认证评测</text>
+    </view>
+    <view class="feature-item" bindtap="goToStudy">
+      <view class="feature-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+        <image src="/images/icon-study.png" mode="aspectFit"></image>
+      </view>
+      <text class="feature-text">实验学习</text>
+    </view>
+    <view class="feature-item" bindtap="goToActivity">
+      <view class="feature-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+        <image src="/images/icon-gift.png" mode="aspectFit"></image>
+      </view>
+      <text class="feature-text">热门活动</text>
+    </view>
+    <view class="feature-item" bindtap="goToRank">
+      <view class="feature-icon" style="background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);">
+        <image src="/images/icon-rank.png" mode="aspectFit"></image>
+      </view>
+      <text class="feature-text">刷题排行</text>
+    </view>
+  </view>
+
+  <!-- 通知公告 -->
+  <view class="notice-bar">
+    <view class="notice-tag notice">通知</view>
+    <view class="notice-tag announcement">公告</view>
+    <text class="notice-text">实战云刷题为你提供，技能评测、教材学习、PK竞赛、岗位评测、在线实验等功能~</text>
+  </view>
+
+  <!-- 热门认证 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">热门认证</text>
+      <view class="section-more" bindtap="goToCertification">
+        <text>查看更多</text>
+        <image class="arrow-icon" src="/images/arrow-right.png" mode="aspectFit"></image>
+      </view>
+    </view>
+
+    <!-- 认证列表 -->
+    <view class="cert-list">
+      <view class="cert-card" wx:for="{{certList}}" wx:key="id" bindtap="goToExam" data-id="{{item.id}}">
+        <view class="cert-header">
+          <text class="cert-tag">{{item.tag}}</text>
+          <view class="cert-badge" wx:if="{{item.isFree}}">限免</view>
+        </view>
+        <view class="cert-content">
+          <text class="cert-title">{{item.title}}</text>
+          <text class="cert-subtitle">{{item.subtitle}}</text>
+          <text class="cert-count">共 {{item.count}} 题</text>
+        </view>
+        <view class="cert-action">
+          <view class="btn-go">去刷题</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
