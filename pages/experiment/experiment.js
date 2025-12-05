@@ -1,6 +1,10 @@
-// pages/experiment/experiment.js
+/**
+ * 在线实验页
+ */
 Page({
-  // 页面的初始数据
+  /**
+   * 页面的初始数据
+   */
   data: {
     stats: {
       completed: 12,
@@ -99,7 +103,9 @@ Page({
     }
   },
 
-  // 切换分类
+  /**
+   * 切换分类
+   */
   switchCategory(e) {
     const index = e.currentTarget.dataset.index
     this.setData({
@@ -111,6 +117,9 @@ Page({
     })
   },
 
+  /**
+   * 开始实验
+   */
   startExperiment(e) {
     const id = e.currentTarget.dataset.id
     wx.showToast({

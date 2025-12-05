@@ -1,4 +1,7 @@
-// config/index.js - 配置文件
+/**
+ * 项目配置文件
+ * @module config/index
+ */
 
 // 环境配置
 const ENV = {

@@ -1,4 +1,8 @@
-// api/index.js - API接口统一管理
+/**
+ * API接口统一管理
+ * @module api/index
+ */
+
 const { get, post, put, del } = require('../utils/request')
 
 /**

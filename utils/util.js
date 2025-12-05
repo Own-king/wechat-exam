@@ -1,9 +1,13 @@
-// utils/util.js - 工具函数
+/**
+ * 通用工具函数库
+ * @module utils/util
+ */
 
 /**
  * 格式化时间
  * @param {Date} date 日期对象
- * @param {String} format 格式化字符串
+ * @param {String} format 格式化字符串，默认'YYYY-MM-DD HH:mm:ss'
+ * @returns {String} 格式化后的时间字符串
  */
 const formatTime = (date, format = 'YYYY-MM-DD HH:mm:ss') => {
   const year = date.getFullYear()
@@ -29,6 +33,7 @@ const formatTime = (date, format = 'YYYY-MM-DD HH:mm:ss') => {
 
 /**
  * 获取当前日期
+ * @returns {String} 格式化的当前日期 YYYY-MM-DD
  */
 const getCurrentDate = () => {
   return formatTime(new Date(), 'YYYY-MM-DD')
@@ -36,6 +41,7 @@ const getCurrentDate = () => {
 
 /**
  * 获取当前时间
+ * @returns {String} 格式化的当前时间 HH:mm:ss
  */
 const getCurrentTime = () => {
   return formatTime(new Date(), 'HH:mm:ss')
@@ -43,6 +49,7 @@ const getCurrentTime = () => {
 
 /**
  * 获取当前日期时间
+ * @returns {String} 格式化的当前日期时间
  */
 const getCurrentDateTime = () => {
   return formatTime(new Date())
@@ -51,7 +58,8 @@ const getCurrentDateTime = () => {
 /**
  * 时间戳转日期
  * @param {Number} timestamp 时间戳（毫秒）
- * @param {String} format 格式化字符串
+ * @param {String} format 格式化字符串，默认'YYYY-MM-DD HH:mm:ss'
+ * @returns {String} 格式化后的日期字符串
  */
 const timestampToDate = (timestamp, format = 'YYYY-MM-DD HH:mm:ss') => {
   return formatTime(new Date(timestamp), format)
@@ -60,7 +68,8 @@ const timestampToDate = (timestamp, format = 'YYYY-MM-DD HH:mm:ss') => {
 /**
  * 防抖函数
  * @param {Function} fn 要执行的函数
- * @param {Number} delay 延迟时间（毫秒）
+ * @param {Number} delay 延迟时间（毫秒），默认500
+ * @returns {Function} 防抖后的函数
  */
 const debounce = (fn, delay = 500) => {
   let timer = null
@@ -75,7 +84,8 @@ const debounce = (fn, delay = 500) => {
 /**
  * 节流函数
  * @param {Function} fn 要执行的函数
- * @param {Number} interval 时间间隔（毫秒）
+ * @param {Number} interval 时间间隔（毫秒），默认500
+ * @returns {Function} 节流后的函数
  */
 const throttle = (fn, interval = 500) => {
   let lastTime = 0
@@ -91,6 +101,7 @@ const throttle = (fn, interval = 500) => {
 /**
  * 深拷贝
  * @param {*} obj 要拷贝的对象
+ * @returns {*} 拷贝后的对象
  */
 const deepClone = (obj) => {
   if (obj === null || typeof obj !== 'object') return obj
@@ -116,6 +127,7 @@ const deepClone = (obj) => {
 /**
  * 手机号脱敏
  * @param {String} phone 手机号
+ * @returns {String} 脱敏后的手机号
  */
 const maskPhone = (phone) => {
   if (!phone) return ''
@@ -125,6 +137,7 @@ const maskPhone = (phone) => {
 /**
  * 身份证号脱敏
  * @param {String} idCard 身份证号
+ * @returns {String} 脱敏后的身份证号
  */
 const maskIdCard = (idCard) => {
   if (!idCard) return ''
@@ -134,6 +147,7 @@ const maskIdCard = (idCard) => {
 /**
  * 验证手机号
  * @param {String} phone 手机号
+ * @returns {Boolean} 是否有效
  */
 const validatePhone = (phone) => {
   return /^1[3-9]\d{9}$/.test(phone)
@@ -142,6 +156,7 @@ const validatePhone = (phone) => {
 /**
  * 验证邮箱
  * @param {String} email 邮箱
+ * @returns {Boolean} 是否有效
  */
 const validateEmail = (email) => {
   return /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(email)
@@ -150,6 +165,7 @@ const validateEmail = (email) => {
 /**
  * 验证身份证号
  * @param {String} idCard 身份证号
+ * @returns {Boolean} 是否有效
  */
 const validateIdCard = (idCard) => {
   return /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(idCard)
@@ -158,6 +174,7 @@ const validateIdCard = (idCard) => {
 /**
  * 获取URL参数
  * @param {String} name 参数名
+ * @returns {String} 参数值
  */
 const getUrlParam = (name) => {
   const pages = getCurrentPages()
@@ -168,6 +185,7 @@ const getUrlParam = (name) => {
 /**
  * 数组去重
  * @param {Array} arr 数组
+ * @returns {Array} 去重后的数组
  */
 const unique = (arr) => {
   return [...new Set(arr)]
@@ -177,6 +195,7 @@ const unique = (arr) => {
  * 数组分组
  * @param {Array} arr 数组
  * @param {Number} size 每组大小
+ * @returns {Array} 分组后的二维数组
  */
 const chunk = (arr, size) => {
   const result = []
@@ -187,8 +206,9 @@ const chunk = (arr, size) => {
 }
 
 /**
- * 随机字符串
- * @param {Number} length 长度
+ * 生成随机字符串
+ * @param {Number} length 长度，默认8
+ * @returns {String} 随机字符串
  */
 const randomString = (length = 8) => {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -275,6 +295,7 @@ const clearStorage = () => {
  * 存储数据（同步版本，仅在必要时使用）
  * @param {String} key 键
  * @param {*} value 值
+ * @returns {Boolean} 是否成功
  */
 const setStorageSync = (key, value) => {
   try {
@@ -289,6 +310,7 @@ const setStorageSync = (key, value) => {
 /**
  * 获取存储数据（同步版本，仅在必要时使用）
  * @param {String} key 键
+ * @returns {*} 存储的值
  */
 const getStorageSync = (key) => {
   try {
@@ -299,29 +321,41 @@ const getStorageSync = (key) => {
   }
 }
 
+// 导出工具函数
 module.exports = {
+  // 时间相关
   formatTime,
   getCurrentDate,
   getCurrentTime,
   getCurrentDateTime,
   timestampToDate,
+  
+  // 函数工具
   debounce,
   throttle,
   deepClone,
+  
+  // 数据处理
   maskPhone,
   maskIdCard,
   validatePhone,
   validateEmail,
   validateIdCard,
+  
+  // 其他工具
   getUrlParam,
   unique,
   chunk,
   randomString,
-  setStorage,        // 异步版本（推荐）
-  getStorage,        // 异步版本（推荐）
-  removeStorage,     // 异步版本（推荐）
-  clearStorage,      // 异步版本（推荐）
-  setStorageSync,    // 同步版本（备用）
-  getStorageSync     // 同步版本（备用）
+  
+  // 存储（异步，推荐）
+  setStorage,
+  getStorage,
+  removeStorage,
+  clearStorage,
+  
+  // 存储（同步，备用）
+  setStorageSync,
+  getStorageSync
 }
 

@@ -1,6 +1,10 @@
-// pages/certification/certification.js
+/**
+ * 认证评测页
+ */
 Page({
-  // 页面的初始数据
+  /**
+   * 页面的初始数据
+   */
   data: {
     currentCategory: 0,
     categories: ['全部', '阿里云', '华为云', '腾讯云', 'AWS'],
@@ -98,19 +102,23 @@ Page({
     }
   },
 
-  // 切换分类
+  /**
+   * 切换分类
+   */
   switchCategory(e) {
     const index = e.currentTarget.dataset.index
     this.setData({
       currentCategory: index
     })
-    // 这里可以根据分类筛选数据
     wx.showToast({
       title: '切换到: ' + this.data.categories[index],
       icon: 'none'
     })
   },
 
+  /**
+   * 开始刷题
+   */
   startExam(e) {
     const id = e.currentTarget.dataset.id
     wx.showToast({

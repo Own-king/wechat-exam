@@ -1,13 +1,17 @@
-// utils/request.js - 网络请求封装
+/**
+ * 网络请求封装
+ * @module utils/request
+ */
 
-const BASE_URL = 'https://your-api-domain.com/api' // 替换为实际的API地址
+const BASE_URL = 'https://your-api-domain.com/api'
 
 /**
- * 封装wx.request
+ * 通用网络请求方法
  * @param {String} url 请求地址
  * @param {Object} data 请求参数
  * @param {String} method 请求方法
  * @param {Object} header 请求头
+ * @returns {Promise}
  */
 function request(url, data = {}, method = 'GET', header = {}) {
   return new Promise((resolve, reject) => {
@@ -24,7 +28,9 @@ function request(url, data = {}, method = 'GET', header = {}) {
   })
 }
 
-// 实际发送请求的函数
+/**
+ * 实际发送请求的函数
+ */
 function sendRequest(token, url, data, method, header, resolve, reject) {
   wx.request({
     url: BASE_URL + url,
@@ -90,6 +96,10 @@ function sendRequest(token, url, data, method, header, resolve, reject) {
 
 /**
  * GET 请求
+ * @param {String} url 请求地址
+ * @param {Object} data 请求参数
+ * @param {Object} header 请求头
+ * @returns {Promise}
  */
 function get(url, data = {}, header = {}) {
   return request(url, data, 'GET', header)
@@ -97,6 +107,10 @@ function get(url, data = {}, header = {}) {
 
 /**
  * POST 请求
+ * @param {String} url 请求地址
+ * @param {Object} data 请求参数
+ * @param {Object} header 请求头
+ * @returns {Promise}
  */
 function post(url, data = {}, header = {}) {
   return request(url, data, 'POST', header)
@@ -104,6 +118,10 @@ function post(url, data = {}, header = {}) {
 
 /**
  * PUT 请求
+ * @param {String} url 请求地址
+ * @param {Object} data 请求参数
+ * @param {Object} header 请求头
+ * @returns {Promise}
  */
 function put(url, data = {}, header = {}) {
   return request(url, data, 'PUT', header)
@@ -111,6 +129,10 @@ function put(url, data = {}, header = {}) {
 
 /**
  * DELETE 请求
+ * @param {String} url 请求地址
+ * @param {Object} data 请求参数
+ * @param {Object} header 请求头
+ * @returns {Promise}
  */
 function del(url, data = {}, header = {}) {
   return request(url, data, 'DELETE', header)
@@ -118,6 +140,10 @@ function del(url, data = {}, header = {}) {
 
 /**
  * 文件上传
+ * @param {String} filePath 文件路径
+ * @param {String} name 文件对应的key
+ * @param {Object} formData 额外的表单数据
+ * @returns {Promise}
  */
 function uploadFile(filePath, name = 'file', formData = {}) {
   return new Promise((resolve, reject) => {
@@ -134,7 +160,9 @@ function uploadFile(filePath, name = 'file', formData = {}) {
   })
 }
 
-// 实际上传文件的函数
+/**
+ * 实际上传文件的函数
+ */
 function doUpload(token, filePath, name, formData, resolve, reject) {
   wx.uploadFile({
     url: BASE_URL + '/upload',

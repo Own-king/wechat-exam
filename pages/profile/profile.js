@@ -1,8 +1,12 @@
-// pages/profile/profile.js
+/**
+ * 我的页面
+ */
 const app = getApp()
 
 Page({
-  // 页面的初始数据
+  /**
+   * 页面的初始数据
+   */
   data: {
     userInfo: {
       avatar: '/images/avatar.png',
@@ -100,9 +104,10 @@ Page({
     }
   },
 
-  // 获取用户信息
+  /**
+   * 获取用户信息
+   */
   getUserInfo() {
-    // 这里可以从后台获取用户信息
     const userInfo = {
       avatar: '/images/avatar.png',
       name: '实战云用户',
@@ -114,6 +119,9 @@ Page({
     })
   },
 
+  /**
+   * 菜单点击事件
+   */
   handleMenuClick(e) {
     const id = e.currentTarget.dataset.id
     const menuItem = this.data.menuList.find(item => item.id === id)
@@ -123,6 +131,9 @@ Page({
     })
   },
 
+  /**
+   * 设置点击事件
+   */
   handleSettingClick(e) {
     const id = e.currentTarget.dataset.id
     const settingItem = this.data.settingList.find(item => item.id === id)
@@ -132,6 +143,9 @@ Page({
     })
   },
 
+  /**
+   * 退出登录
+   */
   handleLogout() {
     wx.showModal({
       title: '提示',
@@ -142,7 +156,7 @@ Page({
             title: '已退出登录',
             icon: 'success'
           })
-          // 这里可以清除登录信息
+          // TODO: 清除登录信息
         }
       }
     })
